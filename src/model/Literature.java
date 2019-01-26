@@ -7,6 +7,7 @@ public class Literature {
     private String category;
     private String description;
     private String path;
+    private int num;
 
     public Literature() {
         this.id = "";
@@ -15,6 +16,7 @@ public class Literature {
         this.category = "";
         this.description = "";
         this.path = "";
+        this.num = 0;
     }
 
     public String getId() {
@@ -63,5 +65,13 @@ public class Literature {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
     }
 }
