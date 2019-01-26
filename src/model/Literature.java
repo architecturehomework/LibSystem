@@ -4,6 +4,7 @@ public class Literature {
     private String id;
     private String name;
     private String author;
+    private String category;
     private String description;
     private String path;
 
@@ -11,6 +12,7 @@ public class Literature {
         this.id = "";
         this.name = "";
         this.author = "";
+        this.category = "";
         this.description = "";
         this.path = "";
     }
@@ -53,5 +55,13 @@ public class Literature {
 
     public void setPath(String path) {
         this.path = path;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

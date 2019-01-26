@@ -1,27 +1,11 @@
 package model;
 
-public class Administrator {
-    private String id;
-    private String password;
+import model.Strategy.ConcreteStrategy.NoStrategy;
+
+public class Administrator extends User {
 
     public Administrator() {
-        this.id = "";
-        this.password = "";
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+        type = "系统管理员";
+        strategy = new NoStrategy();
     }
 }
