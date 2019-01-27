@@ -113,6 +113,7 @@ public class LiteratureDAOImpl implements LiteratureDAO {
                 literature.setCategory(resultSet.getString("category"));
                 literature.setPath(resultSet.getString("path"));
                 literature.setNum(resultSet.getInt("num"));
+                list.add(literature);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -142,6 +143,7 @@ public class LiteratureDAOImpl implements LiteratureDAO {
                 literature.setCategory(resultSet.getString("category"));
                 literature.setPath(resultSet.getString("path"));
                 literature.setNum(resultSet.getInt("num"));
+                list.add(literature);
             }
         } catch (SQLException e) {
             e.printStackTrace();

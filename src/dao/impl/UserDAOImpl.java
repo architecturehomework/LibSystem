@@ -10,6 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserDAOImpl implements UserDAO {
+
+    private static UserDAOImpl userDAO = new UserDAOImpl();
+    public static UserDAOImpl getInstance() {
+        return userDAO;
+    }
+
     @Override
     public int addUser(User user) {
         Connection connection = null;
