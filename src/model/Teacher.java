@@ -8,4 +8,9 @@ public class Teacher extends User {
         type = "教师";
         strategy = new TeacherStrategy();
     }
+
+    public Teacher(User user) {
+        super(user);
+        strategy = new TeacherStrategy();
+    }
 }

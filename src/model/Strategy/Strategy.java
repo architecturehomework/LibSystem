@@ -5,5 +5,7 @@ import model.User;
 
 public interface Strategy {
 
-    public boolean borrow(Literature literature, User user);
+    public int borrow(Literature literature, User user);
+
+    public int returnBook(Literature literature, User user);
 }

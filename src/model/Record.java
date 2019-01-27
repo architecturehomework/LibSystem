@@ -13,6 +13,17 @@ public class Record {
     public Record() {
         this.uid = "";
         this.lid = "";
+        this.startTime = null;
+        this.endTime = null;
+        this.scheduleTime = null;
+    }
+
+    public Record(String uid, String lid, Timestamp startTime) {
+        this.uid = uid;
+        this.lid = lid;
+        this.startTime = startTime;
+        this.endTime = null;
+        this.scheduleTime = null;
     }
 
     public String getUid() {

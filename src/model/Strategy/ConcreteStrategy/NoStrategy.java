@@ -4,9 +4,16 @@ import model.Literature;
 import model.Strategy.Strategy;
 import model.User;
 
+import static util.ErrorCode.CantBorrow;
+
 public class NoStrategy implements Strategy {
     @Override
-    public boolean borrow(Literature literature, User user) {
-        return false;
+    public int borrow(Literature literature, User user) {
+        return CantBorrow;
+    }
+
+    @Override
+    public int returnBook(Literature literature, User user) {
+        return CantBorrow;
     }
 }

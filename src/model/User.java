@@ -15,8 +15,30 @@ public class User {
     protected Strategy strategy;
     protected int priority;
 
-    public boolean borrow(Literature literature) {
+    public User() {
+
+    }
+
+    public User(User user) {
+        this.id = user.id;
+        this.password = user.password;
+        this.name = user.name;
+        this.type = user.type;
+        this.mail = user.mail;
+        this.phone = user.phone;
+        this.school = user.school;
+        this.department = user.department;
+        this.money = user.money;
+        this.strategy = user.strategy;
+        this.priority = user.priority;
+    }
+
+    public int borrow(Literature literature) {
         return strategy.borrow(literature, this);
+    }
+
+    public int returnBook(Literature literature) {
+        return strategy.returnBook(literature, this);
     }
 
 

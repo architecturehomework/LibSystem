@@ -7,4 +7,9 @@ public class Graduate extends User {
         type = "研究生";
         strategy = new GraduateStrategy();
     }
+
+    public Graduate(User user) {
+        super(user);
+        strategy = new GraduateStrategy();
+    }
 }
