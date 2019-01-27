@@ -33,7 +33,7 @@ public class UserDAOImpl implements UserDAO {
             statement.setString(7, user.getSchool());
             statement.setString(8, user.getDepartment());
             statement.setDouble(9, user.getMoney());
-            statement.setInt(10, user.getPriority());
+            statement.setString(10, user.getPriority());
             result = statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -55,7 +55,7 @@ public class UserDAOImpl implements UserDAO {
             statement.setString(2, user.getMail());
             statement.setString(3, user.getPhone());
             statement.setDouble(4, user.getMoney());
-            statement.setInt(5, user.getPriority());
+            statement.setString(5, user.getPriority());
             statement.setString(6, user.getId());
             result = statement.executeUpdate();
         } catch (SQLException e) {
@@ -86,7 +86,7 @@ public class UserDAOImpl implements UserDAO {
                 user.setSchool(resultSet.getString("school"));
                 user.setDepartment(resultSet.getString("department"));
                 user.setMoney(resultSet.getDouble("money"));
-                user.setPriority(resultSet.getInt("priority"));
+                user.setPriority(resultSet.getString("priority"));
             }
         } catch (SQLException e) {
             e.printStackTrace();

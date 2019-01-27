@@ -12,4 +12,8 @@ public interface UserService {
 
     public User login(String id, String password);
 
+    public int grantPriority(String id, char priority);
+
+    public int removePriority(String id, char priority);
+
 }

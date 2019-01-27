@@ -8,4 +8,6 @@ public class ErrorCode {
     public static final int NoLiteratureToReturn = -3;
     public static final int CantBorrow = -4;
     public static final int HaveBorrowed = -5;
+    public static final int NoPriority = -6;
+    public static final int WrongInput = -7;
 }

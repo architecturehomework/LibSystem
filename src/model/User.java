@@ -2,6 +2,8 @@ package model;
 
 import model.Strategy.Strategy;
 
+import static util.ErrorCode.NoPriority;
+
 public class User {
     protected String id;
     protected String password;
@@ -13,7 +15,7 @@ public class User {
     protected String department;
     protected double money;
     protected Strategy strategy;
-    protected int priority;
+    protected String priority;
 
     public User() {
 
@@ -39,6 +41,14 @@ public class User {
 
     public int returnBook(Literature literature) {
         return strategy.returnBook(literature, this);
+    }
+
+    public User searchUser(String uid) {
+        return null;
+    }
+
+    public int addUser(User user) {
+        return NoPriority;
     }
 
 
@@ -114,11 +124,11 @@ public class User {
         this.money = money;
     }
 
-    public int getPriority() {
+    public String getPriority() {
         return priority;
     }
 
-    public void setPriority(int priority) {
+    public void setPriority(String priority) {
         this.priority = priority;
     }
 }

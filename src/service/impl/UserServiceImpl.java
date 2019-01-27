@@ -5,6 +5,9 @@ import dao.UserDAO;
 import model.User;
 import service.UserService;
 
+import static util.ErrorCode.WrongInput;
+import static util.PriorityChar.*;
+
 public class UserServiceImpl implements UserService {
 
     private UserDAO userDAO;
@@ -37,5 +40,48 @@ public class UserServiceImpl implements UserService {
             return null;
         }
         return user;
+    }
+
+    @Override
+    public int grantPriority(String id, char priority) {
+        User user = getUser(id);
+        if (user == null) {
+            return 0;
+        }
+        switch (priority) {
+            case NoPriority:
+                user.setPriority(String.valueOf(NoPriority));
+                break;
+            case AddAllPriority:
+            case AddSchoolPriority:
+            case SearchAllPriority:
+            case SearchSchoolPriority:
+                user.setPriority(user.getPriority() + priority);
+                break;
+            default:
+                System.out.println("错误输入");
+                return WrongInput;
+        }
+        return updateUser(user);
+    }
+
+    @Override
+    public int removePriority(String id, char priority) {
+        User user = getUser(id);
+        if (user == null) {
+            return 0;
+        }
+        switch (priority) {
+            case AddAllPriority:
+            case AddSchoolPriority:
+            case SearchAllPriority:
+            case SearchSchoolPriority:
+                user.setPriority(user.getPriority().replace(priority, NoPriority));
+                break;
+            default:
+                System.out.println("错误输入");
+                return WrongInput;
+        }
+        return updateUser(user);
     }
 }
