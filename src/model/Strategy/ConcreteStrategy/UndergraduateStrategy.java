@@ -61,6 +61,7 @@ public class UndergraduateStrategy implements Strategy {
         literature.setNum(literature.getNum() - 1);
         literatureService.updateLiterature(literature);
         Record record = new Record(user.getId(), literature.getId(), new Timestamp(System.currentTimeMillis()));
+        System.out.println("借书记录：uid" + record.getUid() + "lid" + record.getLid());
         record.setScheduleTime(TimeUtil.calScheduleTime(record.getStartTime(), timeLimit));
         recordService.addRecord(record);
         return SuccessBorrow;
@@ -70,8 +71,10 @@ public class UndergraduateStrategy implements Strategy {
     public int returnBook(Literature literature, User user) {
         Record record = recordService.getLastRecord(user.getId(), literature.getId());
         if (record == null) {
-            return NoMoreLiterature;
+            return NoLiteratureToReturn;
         }
+        literature.setNum(literature.getNum() + 1);
+        literatureService.updateLiterature(literature);
         record.setEndTime(new Timestamp(System.currentTimeMillis()));
         int overdue = TimeUtil.getOverdue(record.getScheduleTime(), record.getEndTime());
         if (overdue <= 0) {

@@ -70,8 +70,10 @@ public class TeacherStrategy implements Strategy {
     public int returnBook(Literature literature, User user) {
         Record record = recordService.getLastRecord(user.getId(), literature.getId());
         if (record == null) {
-            return NoMoreLiterature;
+            return NoLiteratureToReturn;
         }
+        literature.setNum(literature.getNum() + 1);
+        literatureService.updateLiterature(literature);
         record.setEndTime(new Timestamp(System.currentTimeMillis()));
         int overdue = TimeUtil.getOverdue(record.getScheduleTime(), record.getEndTime());
         if (overdue <= 0) {
