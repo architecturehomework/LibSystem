@@ -6,11 +6,10 @@ import service.ServiceFactory;
 
 import static util.ErrorCode.NoPriority;
 
-public class AddSchoolDecorator extends User{
-    User user;
+public class AddSchoolDecorator extends Decorator{
 
     public AddSchoolDecorator(User user) {
-        this.user = user;
+        super(user);
     }
 
     public int borrow(Literature literature) {

@@ -4,11 +4,10 @@ import model.Literature;
 import model.User;
 import service.ServiceFactory;
 
-public class AddAllDecorator extends User {
-    User user;
+public class AddAllDecorator extends Decorator {
 
     public AddAllDecorator(User user) {
-        this.user = user;
+        super(user);
     }
 
     public int borrow(Literature literature) {

@@ -1,5 +1,6 @@
 package service;
 
+import model.Decorator.Decorator;
 import model.User;
 
 public interface UserService {
@@ -15,5 +16,7 @@ public interface UserService {
     public int grantPriority(String id, char priority);
 
     public int removePriority(String id, char priority);
+
+    public Decorator getPriorityUser(String id);
 
 }

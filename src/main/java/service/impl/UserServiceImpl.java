@@ -2,6 +2,10 @@ package service.impl;
 
 import dao.DAOFactory;
 import dao.UserDAO;
+import model.Decorator.*;
+import model.Graduate;
+import model.Teacher;
+import model.Undergraduate;
 import model.User;
 import service.UserService;
 
@@ -83,5 +87,47 @@ public class UserServiceImpl implements UserService {
                 return WrongInput;
         }
         return updateUser(user);
+    }
+
+    @Override
+    public Decorator getPriorityUser(String id) {
+        User user = getUser(id);
+        if (user == null) {
+            return null;
+        }
+        switch (user.getType()) {
+            case "本科生":
+                user = new Undergraduate(user);
+                break;
+            case "研究生":
+                user = new Graduate(user);
+                break;
+            case "教师":
+                user = new Teacher(user);
+                break;
+            default:
+                return null;
+        }
+
+
+
+        if (user.getPriority().equals(String.valueOf(NoPriority))) {
+            return new NoPriorityDecorator(user);
+        }
+        Decorator decorator = new NoPriorityDecorator(user);
+        if (user.getPriority().contains(String.valueOf(AddSchoolPriority))) {
+            decorator = new AddSchoolDecorator(decorator);
+        }
+        System.out.println(user);
+        if (user.getPriority().contains(String.valueOf(AddAllPriority))) {
+            decorator = new AddAllDecorator(decorator);
+        }
+        if (user.getPriority().contains(String.valueOf(SearchSchoolPriority))) {
+            decorator = new SearchSchoolDecorator(decorator);
+        }
+        if (user.getPriority().contains(String.valueOf(SearchAllPriority))) {
+            decorator = new SearchAllDecorator(decorator);
+        }
+        return decorator;
     }
 }

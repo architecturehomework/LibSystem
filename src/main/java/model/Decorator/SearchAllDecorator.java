@@ -5,11 +5,11 @@ import model.User;
 import service.ServiceFactory;
 import service.UserService;
 
-public class SearchAllDecorator extends User {
-    User user;
+public class SearchAllDecorator extends Decorator {
+
 
     public SearchAllDecorator(User user) {
-        this.user = user;
+        super(user);
     }
 
     public int borrow(Literature literature) {
