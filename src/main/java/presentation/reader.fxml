@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="800.0" maxWidth="1000.0" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="presentation.ReaderController">
+   <children>
+      <Pane layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="760.0" prefWidth="180.0" style="-fx-background-color: #ebebeb;">
+         <children>
+            <Label layoutX="38.0" layoutY="30.0" text="书目信息">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="80.0" text="编号：">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lid" layoutX="38.0" layoutY="99.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="118.0" text="书名：">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="lname" layoutX="38.0" layoutY="137.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="25.0" layoutY="155.0" text="作者：">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="author" layoutX="38.0" layoutY="174.0">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="193.0" text="描述：">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="description" layoutX="38.0" layoutY="212.0" wrapText="true">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="40.0" prefWidth="1000.0" style="-fx-background-color: #aaaaaa;">
+         <children>
+            <Label layoutX="378.0" prefHeight="40.0" prefWidth="266.0" text="文献在线阅览" textAlignment="CENTER">
+               <font>
+                  <Font name="LiSu" size="44.0" />
+               </font>
+            </Label>
+            <Button fx:id="backButton" focusTraversable="false" mnemonicParsing="false" onAction="#Back" prefHeight="40.0" prefWidth="84.0" text="返  回">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <TextArea fx:id="contentArea" editable="false" focusTraversable="false" layoutX="180.0" layoutY="40.0" prefHeight="760.0" prefWidth="821.0" wrapText="true" />
+   </children>
+</AnchorPane>

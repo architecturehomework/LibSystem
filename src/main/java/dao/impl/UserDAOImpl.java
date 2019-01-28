@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class UserDAOImpl implements UserDAO {
 
@@ -94,5 +95,35 @@ public class UserDAOImpl implements UserDAO {
             DBUtil.closeAll(connection, statement, resultSet);
         }
         return user;
+    }
+
+    @Override
+    public ArrayList<User> getAllUser() {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        ArrayList<User> list = new ArrayList<>();
+        try {
+            connection = DBUtil.getConnection();
+            statement = connection.prepareStatement("select * from users;");
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                User user = new User();
+                user.setId(resultSet.getString("id"));
+                user.setPassword(resultSet.getString("password"));
+                user.setName(resultSet.getString("name"));
+                user.setType(resultSet.getString("type"));
+                user.setMail(resultSet.getString("mail"));
+                user.setSchool(resultSet.getString("school"));
+                user.setDepartment(resultSet.getString("department"));
+                user.setMoney(resultSet.getDouble("money"));
+                user.setPriority(resultSet.getString("priority"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            DBUtil.closeAll(connection, statement, resultSet);
+        }
+        return list;
     }
 }

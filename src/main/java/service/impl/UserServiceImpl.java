@@ -9,6 +9,8 @@ import model.Undergraduate;
 import model.User;
 import service.UserService;
 
+import java.util.ArrayList;
+
 import static util.ErrorCode.WrongInput;
 import static util.PriorityChar.*;
 
@@ -35,6 +37,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUser(String id) {
         return userDAO.getUser(id);
+    }
+
+    @Override
+    public ArrayList<User> getAllUser() {
+        return userDAO.getAllUser();
     }
 
     @Override

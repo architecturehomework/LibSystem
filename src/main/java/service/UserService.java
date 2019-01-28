@@ -3,6 +3,8 @@ package service;
 import model.Decorator.Decorator;
 import model.User;
 
+import java.util.ArrayList;
+
 public interface UserService {
 
     public int addUser(User user);
@@ -10,6 +12,8 @@ public interface UserService {
     public int updateUser(User user);
 
     public User getUser(String id);
+
+    public ArrayList<User> getAllUser();
 
     public User login(String id, String password);
 
